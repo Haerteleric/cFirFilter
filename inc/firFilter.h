@@ -1,20 +1,12 @@
 /**
  * Author:    Haerteleric
- * Created:   11.07.23
  * 
  * (c) Copyright by Eric Haertel
  * 
- * Portable Rolling Window template implementation
+ * Portable Fir Filter template implementation
  * 
+ * DEPENDS ON : cSuite/cRollingWindow
  **/
-#ifndef _ROLLING_WINDOW_TEMPLATE_
-#error "This template depends on the rollingWindow.h template. include it via extern or cSuite submodule"
-#endif
-
-
-#ifndef _FIR_FILTER_TEMPLATE_
-#define _FIR_FILTER_TEMPLATE_
-
 #include <stddef.h>
 
 #ifdef FIR_FILTER_CONFIG_HEADER_INCLUDE
@@ -32,13 +24,27 @@
 typedef FIR_FILTER_PARAMETER_DATA_TYPE firParameterDataType_t;
 typedef FIR_FILTER_OUTPUT_DATA_TYPE firOutputDataType_t;
 
+#ifndef _FIR_FILTER_INSTANCE_STRUCT_DEFINED
+#define _FIR_FILTER_INSTANCE_STRUCT_DEFINED
+
 typedef struct firFilter_s
 {
     firParameterDataType_t *parameter;
     const unsigned int filterOrder;
 }firFilter_t;
 
-static firOutputDataType_t fir_getOutput(rollingWindow_t * inputHandle, firFilter_t * firHandle)
+#endif
+
+#ifdef FIR_FILTER_INLINE_IMPLEMENTATION
+inline
+#endif 
+#ifdef FIR_FILTER_STATIC_IMPLEMENTATION
+static
+#endif 
+firOutputDataType_t fir_getOutput(rollingWindow_t * inputHandle, firFilter_t * firHandle)
+#ifdef FIR_FILTER_ONLY_PROTOTYPE_DECLARATION
+;
+#else
 {
     firOutputDataType_t output = 0;
     for (unsigned int i = 0; i <= firHandle->filterOrder ; i++)
@@ -48,7 +54,4 @@ static firOutputDataType_t fir_getOutput(rollingWindow_t * inputHandle, firFilte
     
     return output;
 }
-
-#else
-#error "this template should only be included once"
-#endif //_FIR_FILTER_TEMPLATE_
+#endif //FIR_FILTER_ONLY_PROTOTYPE_DECLARATION

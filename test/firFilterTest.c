@@ -4,11 +4,19 @@
 #include <time.h>
 /*****************************TEMPLATE INCLUDE**************************************/
 #define ROLLING_WINDOW_DATA_TYPE float
-#include "rollingWindow.h"
-    
 #define FIR_FILTER_PARAMETER_DATA_TYPE float
 #define FIR_FILTER_OUTPUT_DATA_TYPE float
-#include "firFilter.h"
+
+//following just for testing
+#define ROLLING_WINDOW_ONLY_PROTOTYPE_DECLARATION
+#include "rollingWindow.h" //Prototype
+#undef ROLLING_WINDOW_ONLY_PROTOTYPE_DECLARATION
+#include "rollingWindow.h" //Implementation
+
+#define FIR_FILTER_ONLY_PROTOTYPE_DECLARATION
+#include "firFilter.h" //Prototype
+#undef FIR_FILTER_ONLY_PROTOTYPE_DECLARATION
+#include "firFilter.h" //Implementation
 /***********************************************************************************/
 
 
