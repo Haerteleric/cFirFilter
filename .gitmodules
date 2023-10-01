@@ -1,0 +1,3 @@
+[submodule "extern/cSuite/cRollingWindow"]
+	path = extern/cSuite/cRollingWindow
+	url = https://github.com/Haerteleric/cRollingWindow
