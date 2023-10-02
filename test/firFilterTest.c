@@ -9,14 +9,14 @@
 
 //following just for testing
 #define ROLLING_WINDOW_ONLY_PROTOTYPE_DECLARATION
-#include "rollingWindow.h" //Prototype
+#include "rollingWindow_t.h" //Prototype
 #undef ROLLING_WINDOW_ONLY_PROTOTYPE_DECLARATION
-#include "rollingWindow.h" //Implementation
+#include "rollingWindow_t.h" //Implementation
 
 #define FIR_FILTER_ONLY_PROTOTYPE_DECLARATION
-#include "firFilter.h" //Prototype
+#include "firFilter_t.h" //Prototype
 #undef FIR_FILTER_ONLY_PROTOTYPE_DECLARATION
-#include "firFilter.h" //Implementation
+#include "firFilter_t.h" //Implementation
 /***********************************************************************************/
 
 
