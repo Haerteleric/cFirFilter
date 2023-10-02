@@ -30,8 +30,17 @@
  **/
 #include <stddef.h>
 
+#if !defined(_ROLLING_WINDOW_INCLUDED) && !defined(FIR_FILTER_ONLY_PROTOTYPE_DECLARATION)
+#error "this template depends on cRollingWindow.h include before this template via extern or cSuite"
+#endif
+
+
 #ifdef FIR_FILTER_CONFIG_HEADER_INCLUDE
     #include FIR_FILTER_CONFIG_HEADER_INCLUDE
+#endif
+
+#ifndef _FIR_FILTER_INCLUDED
+#define _FIR_FILTER_INCLUDED
 #endif
 
 #ifndef FIR_FILTER_PARAMETER_DATA_TYPE
